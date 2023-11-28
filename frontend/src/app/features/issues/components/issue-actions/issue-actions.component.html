@@ -1,0 +1,29 @@
+<app-button
+  nz-dropdown
+  nzTrigger="click"
+  [nzDropdownMenu]="menu"
+  [nzOverlayStyle]="{ 'min-width': '176px' }"
+  nzPlacement="bottomRight"
+  icon="more-horiz"
+  [iconSize]="20"
+  [className]="'btn-empty'"
+  nz-tooltip
+  nzTooltipTitle="Actions"
+>
+</app-button>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item (click)="onDeleteIssue(templContent)">
+      <app-svg-icon name="file-delete" [size]="20"></app-svg-icon>Deletar
+    </li>
+  </ul>
+</nz-dropdown-menu>
+
+<ng-template #templContent>
+  <p>
+    Você está prestes a excluir permanentemente este problema, seus comentários e anexos,
+    e todos os seus dados.
+  </p>
+  <p>Se não tiver certeza, você pode cancelar e encerrar este problema.</p>
+</ng-template>

@@ -1,0 +1,113 @@
+/*Font - Roboto Mono*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@400;700&display=swap");
+
+* {
+  font-family: "Roboto Mono", monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./imgLogin.jpg");
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  height: 100vh;
+}
+
+.login {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.74);
+  border: 1px solid #5a504e;
+  height: 600px;
+  width: 500px;
+  border-radius: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.empresa,
+.cadastro,
+.login-usuario,
+.senha-usuario,
+.entrar {
+  color: #5a504e;
+}
+
+.empresa {
+  margin-top: 50px;
+  font-size: 30px;
+}
+
+.cadastro,
+form {
+  font-size: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+form {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  margin-bottom: -40px;
+}
+
+.senha-usuario,
+.login-usuario,
+.email-usuario {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.entrar-senha,
+.entrar-login {
+  padding-bottom: 10px;
+}
+
+.senha,
+.usuario {
+  border: 1px solid #5a504e;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #bdb9b9;
+}
+
+.entrar {
+  font-size: 20px;
+  border: 1px solid #5a504e;
+  border-radius: 10px;
+  background-color: #bdb9b9;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.entrar:hover,
+.usuario:hover,
+.senha:hover {
+  color: #fff;
+  border: 1px solid rgb(128, 126, 126);
+  transition: all ease-in-out 0.3s;
+}
+
+.senha::placeholder,
+.usuario::placeholder {
+  font-size: 18px;
+}
+
+.logo {
+  width: 90px;
+  margin-bottom: -45px;
+  margin-top: 10px;
+}

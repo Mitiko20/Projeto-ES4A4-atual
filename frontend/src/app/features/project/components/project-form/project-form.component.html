@@ -1,0 +1,102 @@
+<div class="project-form">
+  <h1 *ngIf="!editMode">Crie um Projeto!</h1>
+  <form nz-form nzLayout="vertical" [formGroup]="projectForm">
+    <nz-form-item class="default-form-item">
+      <nz-form-label nzRequired>Nome</nz-form-label>
+      <nz-form-control nzHasFeedback [nzErrorTip]="nameErrorTempl">
+        <input
+          nz-input
+          formControlName="name"
+          placeholder="Coloque o nome do projeto"
+        />
+        <ng-template #nameErrorTempl let-control>
+          <ng-container *ngIf="control.hasError('required')">
+            O nome não pode ficar vazio
+          </ng-container>
+          <ng-container *ngIf="control.hasError('minlength')">
+            Você deve inserir pelo menos 5 caracteres
+          </ng-container>
+          <ng-container *ngIf="control.hasError('uniqueProjectName')">
+            Já existe um projeto com esse nome.
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="small-form-item">
+      <nz-form-label nzRequired>Chave</nz-form-label>
+      <nz-form-control nzHasFeedback [nzErrorTip]="keyErrorTempl">
+        <input class="input-key" nz-input formControlName="key" />
+        <ng-template #keyErrorTempl let-control>
+          <ng-container *ngIf="control.hasError('required')">
+            A chave não pode estar vazia
+          </ng-container>
+          <ng-container *ngIf="control.hasError('minlength')">
+            Você deve inserir pelo menos 2 caracteres
+          </ng-container>
+          <ng-container *ngIf="control.hasError('uniqueProjectKey')">
+            Já existe um projeto com essa chave.
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="default-form-item">
+      <nz-form-label>URL</nz-form-label>
+      <nz-form-control>
+        <input nz-input formControlName="url" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="small-form-item">
+      <nz-form-label>Categoria do Projeto</nz-form-label>
+      <nz-form-control>
+        <nz-select nzShowSearch formControlName="category">
+          <nz-option
+            *ngFor="let cateory of projectCategories"
+            [nzValue]="cateory"
+            [nzLabel]="cateory"
+          ></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>Descrição</nz-form-label>
+      <nz-form-control>
+        <quill-editor
+          formControlName="description"
+          [modules]="defaultEditorOptions"
+          format="object"
+          [styles]="{ 'min-height': '200px' }"
+        ></quill-editor>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item *ngIf="editMode" class="default-form-item">
+      <nz-form-label nzRequired>Líder de projeto</nz-form-label>
+      <nz-form-control>
+        <project-lead-select
+          [form]="projectForm"
+          [assignees]="currentProject?.assignees"
+        ></project-lead-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control>
+        <div class="action-buttons">
+          <button nz-button (click)="onCancel()">Cancelar</button>
+          <button
+            nz-button
+            nzType="primary"
+            [nzLoading]="isLoading"
+            (click)="submitForm()"
+            [disabled]="projectForm?.invalid || projectForm?.pristine"
+          >
+            {{ editMode ? "Salvar" : "Criar" }}
+          </button>
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

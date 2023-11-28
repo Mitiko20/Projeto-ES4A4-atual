@@ -1,0 +1,38 @@
+<body>
+  <section class="container">
+    <div class="login">
+      <img src="../../../../favicon.ico" class="logo" />
+      <div class="empresa">
+        <h1>ProPlan</h1>
+      </div>
+      <div class="cadastro">
+        <p>
+          Não tem uma conta ainda?
+          <a routerLink="/register-page">Cadastre-se!</a>
+        </p>
+      </div>
+      <form>
+        <div class="login-usuario">
+          <input
+            type="text"
+            name="usuario"
+            class="usuario"
+            placeholder="E-mail"
+            #email
+          />
+        </div>
+        <div class="senha-usuario">
+          <input
+            type="password"
+            name="senha"
+            class="senha"
+            placeholder="Senha"
+            #senha
+          />
+        </div>
+      </form>
+
+      <button type="submit" class="entrar" #entrarButton>Entrar</button>
+    </div>
+  </section>
+</body>

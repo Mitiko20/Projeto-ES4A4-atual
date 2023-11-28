@@ -1,0 +1,39 @@
+issue-description {
+  .issue-description {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color:#491a68;
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    padding-top: 0.75rem;
+
+    button:first-of-type {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+quill-view.description {
+  .ql-container {
+    margin-left: -10px;
+
+    .ql-editor {
+      border: transparent;
+      padding: 10px;
+      line-height: 1.28;
+      border-radius: 3px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      &:hover:not(:focus) {
+        background-color: #faf9eb;
+        color: #494549;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.issue-reporter {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.25rem;
+  color: #604A6F;
+}
+
+.reporter-content {
+  display: flex;
+  align-items: center;
+
+  nz-avatar {
+    margin-right: 0.5rem;
+  }
+}
